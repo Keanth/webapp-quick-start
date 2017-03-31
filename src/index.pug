@@ -1,17 +1,15 @@
-doctype html
-html(lang="en")
-  head
-    title= pageTitle
-    script(type='text/javascript').
-      if (foo) bar(1 + 5)
-  body
-    include includes/header.pug
-    h1 Pug - node template engine
-    #container.col
-      if youAreUsingPug
-        p You are amazing
-      else
-        p Get on it!
-      p.
-        Pug is a terse and simple templating language with a
-        strong focus on performance and powerful features.
+doctype
+html
+	include ./includes/head.pug
+
+	body
+		div
+			p First Paragraph
+
+			ul
+				li#bbp-list-item
+					a(href='#') sup
+				li#bbp-list-item
+					a(href='#') sup
+				li#bbp-list-item
+					a(href='#') sup
