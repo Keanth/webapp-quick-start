@@ -24,7 +24,7 @@ module.exports = {
 	module: {
 		rules: [
 			{ 
-				test: /\.scss$/, 
+				test: /\.sass$/, 
 				use: cssConfig
 			},
 			// { 
@@ -62,7 +62,7 @@ module.exports = {
 			// },
 			hash: true,
 			excludeChunks: [ 'contact' ],
-			template: './src/index.pug'
+			template: './src/app.pug'
 		}),
 		// new HtmlWebpackPlugin({
 		// 	title: 'Other Page',
