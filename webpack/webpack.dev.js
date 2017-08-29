@@ -7,6 +7,7 @@ module.exports = merge(commonConfig, {
   output: {
     filename: '[name].bundle.js',
   },
+
   module: {
     rules: [
       // css & preprocessors
@@ -14,16 +15,19 @@ module.exports = merge(commonConfig, {
         test: /\.sass$/,
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
+
       {
         test: /\.scss$/,
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
+
       {
         test: /\.less$/,
         use: ['style-loader', 'css-loader', 'less-loader'],
       },
     ],
   },
+
   devtool: 'cheap-module-eval-source-map',
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
@@ -31,6 +35,7 @@ module.exports = merge(commonConfig, {
     hot: true,
     port: 9001,
   },
+
   plugins: [new webpack.HotModuleReplacementPlugin()],
 });
 

@@ -7,6 +7,7 @@ module.exports = merge(commonConfig, {
   output: {
     filename: '[name].bundle.[hash].js',
   },
+
   module: {
     rules: [
       {
@@ -17,6 +18,7 @@ module.exports = merge(commonConfig, {
           publicPath: '/dist',
         }),
       },
+
       {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract({
@@ -25,6 +27,7 @@ module.exports = merge(commonConfig, {
           publicPath: '/dist',
         }),
       },
+
       {
         test: /\.less$/,
         loader: ExtractTextPlugin.extract({
@@ -35,12 +38,14 @@ module.exports = merge(commonConfig, {
       },
     ],
   },
+
   devtool: 'source-map',
   plugins: [
     new ExtractTextPlugin({
       filename: '[name].style.[hash].css',
       allChunks: true,
     }),
+
     // uglify JS (obscure & minimize)
     new webpack.optimize.UglifyJsPlugin({
       sourceMap: true,
