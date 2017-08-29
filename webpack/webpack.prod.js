@@ -25,6 +25,14 @@ module.exports = merge(commonConfig, {
           publicPath: '/dist',
         }),
       },
+      {
+        test: /\.less$/,
+        loader: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader', 'less-loader'],
+          publicPath: '/dist',
+        }),
+      },
     ],
   },
   devtool: 'source-map',

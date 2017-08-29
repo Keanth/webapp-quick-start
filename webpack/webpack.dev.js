@@ -14,6 +14,14 @@ module.exports = merge(commonConfig, {
         test: /\.sass$/,
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
+      {
+        test: /\.scss$/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+      },
+      {
+        test: /\.less$/,
+        use: ['style-loader', 'css-loader', 'less-loader'],
+      },
     ],
   },
   devtool: 'cheap-module-eval-source-map',
