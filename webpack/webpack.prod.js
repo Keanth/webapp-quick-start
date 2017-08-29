@@ -1,8 +1,12 @@
 const merge = require('webpack-merge');
 const commonConfig = require('./webpack.common.js');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = merge(commonConfig, {
+  output: {
+    filename: '[name].bundle.[hash].js',
+  },
   module: {
     rules: [
       {
@@ -29,9 +33,21 @@ module.exports = merge(commonConfig, {
       filename: 'app.css',
       allChunks: true,
     }),
+    // uglify JS (obscure & minimize)
+    new webpack.optimize.UglifyJsPlugin({
+      sourceMap: true,
+      compress: {
+        warnings: false,
+      },
+    }),
+
+    // minimize other files (css, ...), here for webpack 1.x plugins
+    new webpack.LoaderOptionsPlugin({
+      minimize: true,
+    }),
   ],
 });
 
 console.log(`---------------------------------------
-BUILDING FOR PRODUCTION...
+> BUILDING FOR PRODUCTION...
 ---------------------------------------`);

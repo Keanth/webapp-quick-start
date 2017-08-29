@@ -4,6 +4,9 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = merge(commonConfig, {
+  output: {
+    filename: '[name].bundle.js',
+  },
   module: {
     rules: [
       // css & preprocessors
@@ -24,5 +27,5 @@ module.exports = merge(commonConfig, {
 });
 
 console.log(`---------------------------------------
-RUNNING DEVELOPMENT SERVER...
+> RUNNING DEVELOPMENT SERVER...
 ---------------------------------------`);

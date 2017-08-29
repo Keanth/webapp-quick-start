@@ -9,4 +9,4 @@ function config() {
       throw new Error(`Invalid or unknow environment: ${env}`);
   }
 }
-module.exports = require(`./config/webpack.${config()}.js`);
+module.exports = require(`./webpack/webpack.${config()}.js`);
