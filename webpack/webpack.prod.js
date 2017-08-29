@@ -30,7 +30,7 @@ module.exports = merge(commonConfig, {
   devtool: 'source-map',
   plugins: [
     new ExtractTextPlugin({
-      filename: 'app.css',
+      filename: '[name].style.[hash].css',
       allChunks: true,
     }),
     // uglify JS (obscure & minimize)
