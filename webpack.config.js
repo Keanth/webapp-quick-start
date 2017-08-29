@@ -23,7 +23,7 @@ module.exports = {
   // Turn on sourcemaps
   devtool: 'source-map',
   resolve: {
-    extensions: ['.ts', '.js'],
+    extensions: ['.ts', '.js', '.sass'],
   },
   module: {
     rules: [
@@ -31,10 +31,10 @@ module.exports = {
         test: /\.sass$/,
         use: cssConfig,
       },
-      // {
-      // test: /\.scss$/,
-      // use: ['style-loader', 'css-loader', 'sass-loader']
-      // },
+      {
+        test: /\.scss$/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+      },
       {
         test: /\.js$/,
         exclude: /(node_modules)/,
