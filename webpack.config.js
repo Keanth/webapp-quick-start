@@ -27,6 +27,7 @@ module.exports = {
   },
   module: {
     rules: [
+      // css & preprocessors
       {
         test: /\.sass$/,
         use: cssConfig,
@@ -35,6 +36,8 @@ module.exports = {
         test: /\.scss$/,
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
+
+      // javascript & typescript
       {
         test: /\.js$/,
         exclude: /(node_modules)/,
@@ -42,14 +45,36 @@ module.exports = {
       },
       {
         test: /\.ts$/,
-        loader: 'ts-loader',
+        use: 'ts-loader',
       },
+
+      // pug & html
       {
         test: /\.pug$/,
-        loaders: 'pug-loader',
+        use: 'pug-loader',
       },
+
+      // images
       {
         test: /\.png$/,
+        use: 'file-loader',
+      },
+      {
+        test: /\.jpg$/,
+        use: 'file-loader',
+      },
+      {
+        test: /\.jpeg$/,
+        use: 'file-loader',
+      },
+
+      // fonts
+      {
+        test: /\.woff(2)?(\?v=\d+\.\d+\.\d+)?$/,
+        use: 'url-loader?limit=10000&mimetype=application/font-woff',
+      },
+      {
+        test: /\.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
         use: 'file-loader',
       },
     ],
